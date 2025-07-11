@@ -9,6 +9,15 @@ The CoHDI system consists of a hardware-disaggregated resource pool and the Comp
 
 ![image](https://github.com/user-attachments/assets/d051630b-00dd-43f9-aef7-9177ae73bb57)
 
+How CoHDI works:  
+![how cohdi works](https://raw.githubusercontent.com/CoHDI/.github/main/profile/how_cohdi_works.gif)
+
+GPU Hot-Add Demonstration: A pod request triggers an increase in the number of GPUs attached to a node, from 1 to 2:  
+![demo_hotadd](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotadd.gif)
+
+GPU Hot-Remove Demonstration: Pod deletion triggers a decrease in the number of GPUs attached to a node, from 2 to 1:  
+![demo_hodremove](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotremove.gif)
+
 [Composable DRA Driver](https://github.com/InfraDDS/composable-dra-driver)
 
 [Dynamic Device Scaler](https://github.com/InfraDDS/dynamic-device-scaler)
