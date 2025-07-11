@@ -18,9 +18,9 @@ GPU Hot-Add Demonstration: A pod request triggers an increase in the number of G
 GPU Hot-Remove Demonstration: Pod deletion triggers a decrease in the number of GPUs attached to a node, from 2 to 1:  
 ![demo_hodremove](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotremove.gif)
 
-[Composable DRA Driver](https://github.com/InfraDDS/composable-dra-driver)
+[Composable DRA Driver](https://github.com/CoHDI/composable-dra-driver)
 
-[Dynamic Device Scaler](https://github.com/InfraDDS/dynamic-device-scaler)
+[Dynamic Device Scaler](https://github.com/CoHDI/dynamic-device-scaler)
 
 [Composable Resource Operator](https://github.com/InfraDDS/composable-resource-operator)
 
