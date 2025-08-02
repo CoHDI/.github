@@ -7,10 +7,10 @@ The DDS project and Composable Resource Operator project aim to bridge this gap 
 ## How it works
 The CoHDI system consists of a hardware-disaggregated resource pool and the Composable Manager (CoHDI Manager) software. Within the resource pool, all components are interconnected via PCIe or CXL switches. The CoHDI Manager orchestrates these switches to dynamically compose bare-metal hardware servers through software-defined configurations. It provides a Composable Resource API, which can be accessed by either the Composable Resource Operator or Kubernetes API.
 
-![image](https://github.com/user-attachments/assets/d051630b-00dd-43f9-aef7-9177ae73bb57)
+![image](https://github.com/user-attachments/assets/d9d35ebd-c695-4ff6-b78a-19fcb718925d)
 
 How CoHDI works:  
-![how cohdi works](https://github.com/user-attachments/assets/d9d35ebd-c695-4ff6-b78a-19fcb718925d)
+![how cohdi works]( )
 
 
 GPU Hot-Add Demonstration: A pod request triggers an increase in the number of GPUs attached to a node, from 1 to 2:  
