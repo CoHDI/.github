@@ -9,9 +9,8 @@ The CoHDI system consists of a hardware-disaggregated resource pool and the Comp
 
 ![image](https://github.com/user-attachments/assets/d9d35ebd-c695-4ff6-b78a-19fcb718925d)
 
-How CoHDI works:  
-[how cohdi works](https://github.com/CoHDI/.github/blob/main/profile)
-
+How CoHDI works:
+![how cohdi works](https://github.com/CoHDI/.github/blob/main/profile/how_cohdi_works.gif) 
 
 GPU Hot-Add Demonstration: A pod request triggers an increase in the number of GPUs attached to a node, from 1 to 2:  
 ![demo_hotadd](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotadd.gif)
