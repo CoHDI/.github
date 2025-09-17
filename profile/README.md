@@ -23,6 +23,6 @@ GPU Hot-Remove Demonstration: Pod deletion triggers a decrease in the number of 
 
 [Dynamic Device Scaler](https://github.com/CoHDI/dynamic-device-scaler)
 
-[Composable Resource Operator](https://github.com/InfraDDS/composable-resource-operator)
+[Composable Resource Operator](https://github.com/CoHDI/composable-resource-operator)
 
 [Policies](https://github.com/InfraDDS/Policies)
