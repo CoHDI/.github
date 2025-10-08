@@ -14,14 +14,14 @@ The CoHDI system consists of a hardware-disaggregated resource pool and the Comp
 ![How Dynamic Device Scaler Works](https://github.com/CoHDI/dynamic-device-scaler/blob/main/doc/dds1.png)
 
 - When we use current DRA, it checks and lists all attached devices in worker nodes to Resource slice. (1)
-- We introduce new kind of resource slice for free devices (e.g. GPU) in resource pool. Composable-DRA-driver checks the free devices in resource pool and lists them in the resource slice. (1)
-- Now we assume user creates a new POD requesting a non-existing GPU in worker nodes. (2)
-- When scheduler tries to schedule the POD and finds the GPU in Resource Slice for resource pool is available, scheduler makes the POD pending state. (3-1, 3-2, 4)
-- After that , when Dynamic-device-scaler detects the pending POD, it requests to attach GPU through composabile-resource- operator custom resource. (5-1, 5-2)
+- We introduce new kind of resource slice for free devices (e.g. GPU) in resource pool. Composable-dra-driver checks the free devices in resource pool and lists them in the resource slice. (1)
+- Now we assume user creates a new Pod requesting a non-existing GPU in worker nodes. (2)
+- When scheduler tries to schedule the Pod and finds the GPU in Resource Slice for resource pool is available, scheduler waits to schedule the Pod. (3-1, 3-2, 4)
+- After that , when Dynamic-device-scaler detects this situation, it requests to attach GPU through composabile-resource- operator custom resource. (5-1, 5-2)
 - Composable-resource-operator requests attachment of GPU to rest API of CDI system. (6-1)
 - Then Composable Hardware Dissagregated Infrastructure Manager controls PCI switch and attach a GPU to a worker node. (6-2)
 - Once GPU is attached, vendor DRA plugin adds the GPU to Resource slice. (1)
-- Finally the pending POD is scheduled using attached GPU.
+- Finally the Pod is scheduled using attached GPU.
 
 See also [KEP-5007](https://github.com/kubernetes/enhancements/tree/master/keps/sig-scheduling/5007-device-attach-before-pod-scheduled).
 
