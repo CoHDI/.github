@@ -42,7 +42,7 @@ For alpha release: [KEP-5007](https://github.com/KobayashiD27/enhancements/blob/
 
 For beta release: [KEP-5007](https://github.com/kubernetes/enhancements/blob/a781dc2df7d413bc53e180ade416c7f38fa6e948/keps/sig-scheduling/5007-device-attach-before-pod-scheduled/)
 
-## CoHDI Projects
+## CoHDI Repositories
 
 [Composable DRA Driver](https://github.com/CoHDI/composable-dra-driver)
 
