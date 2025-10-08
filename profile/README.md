@@ -9,15 +9,40 @@ The CoHDI system consists of a hardware-disaggregated resource pool and the Comp
 
 ![image](https://github.com/user-attachments/assets/d9d35ebd-c695-4ff6-b78a-19fcb718925d)
 
-How CoHDI works:
+### K8s Internal Operation
+
+![How Dynamic Device Scaler Works](https://github.com/CoHDI/dynamic-device-scaler/blob/main/doc/dds1.png)
+
+- When we use current DRA, it checks and lists all attached devices in worker nodes to Resource slice. (1)
+- We introduce new kind of resource slice for free devices (e.g. GPU) in resource pool. Composable-DRA-driver checks the free devices in resource pool and lists them in the resource slice. (1)
+- Now we assume user creates a new POD requesting a non-existing GPU in worker nodes. (2)
+- When scheduler tries to schedule the POD and finds the GPU in Resource Slice for resource pool is available, scheduler makes the POD pending state. (3-1, 3-2, 4)
+- After that , when Dynamic-device-scaler detects the pending POD, it requests to attach GPU through composabile-resource- operator custom resource. (5-1, 5-2)
+- Composable-resource-operator requests attachment of GPU to rest API of CDI system. (6-1)
+- Then Composable Hardware Dissagregated Infrastructure Manager controls PCI switch and attach a GPU to a worker node. (6-2)
+- Once GPU is attached, vendor DRA plugin adds the GPU to Resource slice. (1)
+- Finally the pending POD is scheduled using attached GPU.
+
+See also [KEP-5007](https://github.com/kubernetes/enhancements/tree/master/keps/sig-scheduling/5007-device-attach-before-pod-scheduled).
+
+#### How CoHDI works:
 
 ![how cohdi works](https://github.com/CoHDI/.github/blob/main/profile/how_cohdi_works.gif) 
 
-GPU Hot-Add Demonstration: A pod request triggers an increase in the number of GPUs attached to a node, from 1 to 2:  
+#### GPU Hot-Add Demonstration: A pod request triggers an increase in the number of GPUs attached to a node, from 1 to 2:  
 ![demo_hotadd](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotadd.gif)
 
-GPU Hot-Remove Demonstration: Pod deletion triggers a decrease in the number of GPUs attached to a node, from 2 to 1:  
+### GPU Hot-Remove Demonstration: Pod deletion triggers a decrease in the number of GPUs attached to a node, from 2 to 1:  
 ![demo_hodremove](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotremove.gif)
+
+### Related Information
+These are enhancement description for K8s scheduler.
+
+For alpha release: [KEP-5007](https://github.com/KobayashiD27/enhancements/blob/174e2db180affcd647992b880dcb57b0d57b806a/keps/sig-scheduling/5007-device-attach-before-pod-scheduled/)
+
+For beta release: [KEP-5007](https://github.com/kubernetes/enhancements/blob/a781dc2df7d413bc53e180ade416c7f38fa6e948/keps/sig-scheduling/5007-device-attach-before-pod-scheduled/)
+
+## CoHDI Projects
 
 [Composable DRA Driver](https://github.com/CoHDI/composable-dra-driver)
 
