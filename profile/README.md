@@ -23,6 +23,8 @@ The CoHDI system consists of a hardware-disaggregated resource pool and the Comp
 - Once GPU is attached, vendor DRA plugin adds the GPU to Resource slice. (1)
 - Finally the Pod is scheduled using attached GPU.
 
+For more detailed information on each component, please refer to its respective repository in the CoHDI project.
+
 See also [KEP-5007](https://github.com/kubernetes/enhancements/tree/master/keps/sig-scheduling/5007-device-attach-before-pod-scheduled).
 
 #### How CoHDI works:
