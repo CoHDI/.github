@@ -7,7 +7,7 @@
 | Fujitsu / Fsas Technologies Inc. | 2025 |  | As a server and storage product vender, we are developing CoHDI alongside server system designed for Composable Disaggregated Infrastructure. |
 | IBM Research | 2024 |  | We have been developing the Composable Resource Operator since before the CoHDI project began. Currently, we continue its development as part of the CoHDI project. |
 
-Types of Kubernetes worker nodes that will support CoHDI: 
+Kubernetes distributions that will support CoHDI: 
 
 - [Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) will include CoHDI as part of its solution for dynamic scaling of the devices in the Kubernetes worker nodes.
 - [SUSE Rancher](https://www.suse.com/products/rancher/) will include CoHDI as part of its solution for dynamic scaling of the devices in the Kubernetes worker nodes.
