@@ -48,6 +48,10 @@ For beta release: [KEP-5007](https://github.com/kubernetes/enhancements/blob/a78
 
 [CoHDI Adopters](https://github.com/CoHDI/.github/blob/main/ADOPTERS.md)
 
+## Slack Channel
+
+[CoHDI Slack Channel](https://app.slack.com/client/T08PSQ7BQ/C09FPSSG690)
+
 ## CoHDI Repositories
 
 [Composable DRA Driver](https://github.com/CoHDI/composable-dra-driver)
