@@ -77,6 +77,8 @@ However, there are times when a maintainer may need to be forcefully removed. Wh
 # List of Maintainers 
 An alphabetical list of maintainers for the CoHDI Project by last name:
 
+- Naoki Oguchi
+
 - Hyde Sugiyama
 
 - Jin Hase
