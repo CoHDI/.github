@@ -89,6 +89,6 @@ An alphabetical list of maintainers for the CoHDI Project by last name:
 
 - Masaharu Kanda
 
-- Micrle Gazzetti
+- Michele Gazzetti
 
 - Toshihiro Iwamoto
