@@ -4,11 +4,7 @@ While Composable Disaggregated Infrastructure enables data center operators to u
 
 ## How it works
 The CoHDI system consists of a hardware-disaggregated resource pool and the Composable Manager (CoHDI Manager) software. Within the resource pool, all components are interconnected via PCIe or CXL switches. The CoHDI Manager orchestrates these switches to dynamically compose bare-metal hardware servers through software-defined configurations. It provides a Composable Resource API, which can be accessed by either the Composable Resource Operator or Kubernetes API.
-
 <img width="880" height="516" alt="CoHDI-CoHDI-OSS drawio" src="https://github.com/user-attachments/assets/d8e3a3e9-b239-4dba-8450-c7d967b0684b" />
-
-
-![image](https://github.com/user-attachments/assets/d9d35ebd-c695-4ff6-b78a-19fcb718925d)
 
 ### K8s Internal Operation
 
