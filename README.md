@@ -1,5 +1,5 @@
 # What is CoHDI
-CoHDI (Composable Hardware Disaggregated Infrastructure, also known as Composable Disaggregated Infrastructure) is an innovative server architecture that allows flexible reconfiguration of server components and on-demand provisioning of servers with the required specifications.
+CoHDI (Composable Hardware in Disaggregated Infrastructure, pronounced "Cody", also known as Composable Disaggregated Infrastructure) is an innovative server architecture that allows flexible reconfiguration of server components and on-demand provisioning of servers with the required specifications.
 
 Traditionally, deploying a large number of GPUs required provisioning multiple physical servers, often leading to inefficient use of CPU and memory resources. CoHDI addresses this by disaggregating server components and connecting them via PCIe, CXL, or optical switches to form a shared resource pool. These switches enable the software-defined composition of custom bare-metal servers by connecting only the necessary components.
 
@@ -9,12 +9,11 @@ This architecture—referred to as composed bare metal hardware —aims to deliv
 
 # CoHDI project: Vision statement
 
-The objective is to foster a community-driven, standards-based open ecosystem for next-generation architectures and frameworks built on Composable Hardware Disaggregated Infrastructure (CoHDI, pronounced "Cody"), also known as [Composable Disaggregated Infrastructure technology](https://github.com/InfraDDS/README.md/blob/main/SPEC.md).
-CoHDI enables data center operators to realize the benefits of cost efficiency, high availability, and sustainability through a disaggregated computing system. 
-However, a gap still exists between Kubernetes and CoDHI, making it challenging to achieve more dynamic composability within the Kubernetes cloud-native environment. 
-The DDS project and Composable Resource Operator project aim to bridge this gap by collaborating with Dynamic Resource Allocation, sig-node, sig-autoscaling and sig-scheduling projects.
+The objective is to cultivate a community-driven, standards-based ecosystem for next-generation architectures built on Composable Hardware in Disaggregated Infrastructure (CoHDI).
+While Composable Disaggregated Infrastructure enables data center operators to unlock significant cost efficiency, high availability, and sustainability, a critical gap remains between Kubernetes and disaggregated hardware. This gap hinders the realization of truly dynamic composability within cloud-native environments. The CoHDI software suite—consisting of the Composable-DRA-Driver, Dynamic-Device-Scaler, and Composable Resource Operator—is designed to bridge this divide by integrating directly with Kubernetes' Dynamic Resource Allocation (DRA) and collaborating with the sig-node, sig-autoscaling, and sig-scheduling.
 
-![image](https://github.com/user-attachments/assets/b74707a8-5a48-46c8-93fe-945f9df13646)
+<img width="880" height="516" alt="CoHDI-CoHDI-OSS drawio" src="https://github.com/user-attachments/assets/d8e3a3e9-b239-4dba-8450-c7d967b0684b" />
+
 
 # Project Goals
 - Create a community-driven, standards-based open ecosystem for composable resource technologies
@@ -32,4 +31,4 @@ CoHDI system provides dynamic device scaling capabilities for each Kubernetes no
 # How To Contribute
 This project welcomes contributions and suggestions. We are happy to have the Community involved via submission of Issues and Pull Requests (with substantive content or even just fixes). We are hoping for the documents, test framework, etc. to become a community process with active engagement. PRs can be reviewed by by any number of people, and a maintainer may accept.
 
-See [CONTRIBUTING](https://github.com/InfraDDS/composable-dra-driver/blob/main/CONTRIBUTING.md) and GitHub Basic Process for more details.
+See [CONTRIBUTING](https://github.com/CoHDI/.github/blob/main/CONTRIBUTING.md) and GitHub Basic Process for more details.
