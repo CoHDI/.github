@@ -77,18 +77,13 @@ However, there are times when a maintainer may need to be forcefully removed. Wh
 # List of Maintainers 
 An alphabetical list of maintainers for the CoHDI Project by last name:
 
-- Naoki Oguchi
-
-- Hyde Sugiyama
-
-- Jin Hase
-
-- Ken Iizawa
-
-- Kenji Tagashira
-
-- Masaharu Kanda
-
-- Michele Gazzetti
-
-- Toshihiro Iwamoto
+| Name | Organization | GitHub |
+| --- | --- | --- |
+| Naoki Oguchi | Fsas Technologies Inc. | [@oguchinaoki](https://github.com/oguchinaoki) |
+| Hyde Sugiyama | Red Hat | [@hsugiyam](https://github.com/hsugiyam) |
+| Jin Hase | Fujitsu | [@hase1128](https://github.com/hase1128) |
+| Ken Iizawa | 1FINITY | [@kiizawa](https://github.com/kiizawa) |
+| Kenji Tagashira | Fsas Technologies Inc. | [@tgshrk1843](https://github.com/tgshrk1843) |
+| Masaharu Kanda | NTT | [@kanlkan](https://github.com/kanlkan) |
+| Michele Gazzetti | IBM Research | [@mgazz](https://github.com/mgazz) |
+| Toshihiro Iwamoto | VA Linux | [@toshiiw](https://github.com/toshiiw) |
