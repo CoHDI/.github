@@ -48,14 +48,16 @@ For beta release: [KEP-5007](https://github.com/kubernetes/enhancements/blob/a78
 
 ## Slack Channel
 
-[CoHDI Slack Channel](https://app.slack.com/client/T08PSQ7BQ/C09FPSSG690)
+[CoHDI Slack Channel](https://cloud-native.slack.com/messages/cohdi)
 
-## CoHDI Repositories
+## Meeting
 
-[Composable DRA Driver](https://github.com/CoHDI/composable-dra-driver)
+Please see the "Meeting details" on the [CoHDI Slack Channel](https://cloud-native.slack.com/messages/cohdi)
 
-[Dynamic Device Scaler](https://github.com/CoHDI/dynamic-device-scaler)
+## Code of Conduct
 
-[Composable Resource Operator](https://github.com/CoHDI/composable-resource-operator)
+[Code of Conduct](https://github.com/CoHDI/.github/blob/main/CODE_OF_CONDUCT.md)
 
-[.github](https://github.com/CoHDI/.github)
+## Roadmap
+
+[CoHDI Roadmap](https://github.com/CoHDI/.github/blob/main/ROADMAP.md)
