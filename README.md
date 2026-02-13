@@ -5,6 +5,7 @@ Traditionally, deploying a large number of GPUs required provisioning multiple p
 
 This architecture—referred to as composed bare metal hardware —aims to deliver both high performance and energy efficiency by dynamically adjusting server configurations to match workload requirements.
 ![スクリーンショット 2025-06-21 22 28 52](https://github.com/user-attachments/assets/fafb21a1-a2b4-4635-a63b-5aeb6b8685e1)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FCoHDI%2F.github.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FCoHDI%2F.github?ref=badge_shield)
 
 
 # CoHDI project: Vision statement
@@ -32,3 +33,7 @@ CoHDI system provides dynamic device scaling capabilities for each Kubernetes no
 This project welcomes contributions and suggestions. We are happy to have the Community involved via submission of Issues and Pull Requests (with substantive content or even just fixes). We are hoping for the documents, test framework, etc. to become a community process with active engagement. PRs can be reviewed by by any number of people, and a maintainer may accept.
 
 See [CONTRIBUTING](https://github.com/CoHDI/.github/blob/main/CONTRIBUTING.md) and GitHub Basic Process for more details.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FCoHDI%2F.github.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FCoHDI%2F.github?ref=badge_large)
