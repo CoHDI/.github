@@ -1,39 +1,72 @@
-# What is CoHDI
+## CoHDI Project: Vision Statement
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FCoHDI%2F.github.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FCoHDI%2F.github?ref=badge_shield)
 
-CoHDI (Composable Hardware in Disaggregated Infrastructure, pronounced "Cody", also known as Composable Disaggregated Infrastructure) is an innovative server architecture that allows flexible reconfiguration of server components and on-demand provisioning of servers with the required specifications.
-
-Traditionally, deploying a large number of GPUs required provisioning multiple physical servers, often leading to inefficient use of CPU and memory resources. CoHDI addresses this by disaggregating server components and connecting them via PCIe, CXL, or optical switches to form a shared resource pool. These switches enable the software-defined composition of custom bare-metal servers by connecting only the necessary components.
-
-This architecture—referred to as composed bare metal hardware —aims to deliver both high performance and energy efficiency by dynamically adjusting server configurations to match workload requirements.
-![スクリーンショット 2025-06-21 22 28 52](https://github.com/user-attachments/assets/fafb21a1-a2b4-4635-a63b-5aeb6b8685e1)
-
-
-# CoHDI project: Vision statement
-
-The objective is to cultivate a community-driven, standards-based ecosystem for next-generation architectures built on Composable Hardware in Disaggregated Infrastructure (CoHDI).
+The objective is to cultivate a community-driven, standards-based ecosystem for next-generation architectures built on Composable Hardware in Disaggregated Infrastructure ([CoHDI](https://github.com/CoHDI/.github/blob/main/README.md), pronounced "Cody").
 While Composable Disaggregated Infrastructure enables data center operators to unlock significant cost efficiency, high availability, and sustainability, a critical gap remains between Kubernetes and disaggregated hardware. This gap hinders the realization of truly dynamic composability within cloud-native environments. The CoHDI software suite—consisting of the Composable-DRA-Driver, Dynamic-Device-Scaler, and Composable Resource Operator—is designed to bridge this divide by integrating directly with Kubernetes' Dynamic Resource Allocation (DRA) and collaborating with the sig-node, sig-autoscaling, and sig-scheduling.
+
+## How it works
+The CoHDI system consists of a hardware-disaggregated resource pool and the Composable Manager (CoHDI Manager) software. Within the resource pool, all components are interconnected via PCIe or CXL switches. The CoHDI Manager orchestrates these switches to dynamically compose bare-metal hardware servers through software-defined configurations. It provides a Composable Resource API, which can be accessed by either the Composable Resource Operator or Kubernetes API.
 
 <img width="880" height="516" alt="CoHDI-CoHDI-OSS drawio" src="https://github.com/user-attachments/assets/d8e3a3e9-b239-4dba-8450-c7d967b0684b" />
 
+### K8s Internal Operation
 
-# Project Goals
-- Create a community-driven, standards-based open ecosystem for composable resource technologies
-- Develop a vendor-agnostic framework and architecture for composable resource software stacks
-- Reuse existing APIs or define a new set of common APIs for composable resource technologies as needed
-- Provide implementation examples to validate the architectures/APIs
+![How Dynamic Device Scaler Works](https://github.com/CoHDI/dynamic-device-scaler/blob/main/doc/dds1.png)
 
-# Project Backgrounder
-Generative AI has ushered in a new era of artificial intelligence, significantly increasing power consumption compared to previous generations. As a result, many workloads now require data-centric infrastructure amid rapid hardware evolution.
-Composable Disaggregated Infrastructure (CoHDI) is a key subset of data-centric infrastructure, designed to reduce power consumption by leveraging heterogeneous, composable resources. This approach enables workloads to run on the most appropriate resources, allocated in a timely and efficient manner.
-New infrastructure elements in cloud data center services, as well as in the IOWN Global Forum’s Data-Centric Infrastructure as a Service (DCIaaS), demand more dynamic composability with various types of PCIe-connected devices—including GPUs, DPUs/IPUs/SmartNICs, FPGAs, NVMe, and CXL memory—in order to enable power-saving operations.
-These components must be dynamically composed and decomposed into CPU hosts running Kubernetes nodes via PCIe/CXL switch fabrics. This allows for flexible scaling of host servers (scale-up/scale-down) and applications (scale-out/scale-in) within a Kubernetes cluster.
-CoHDI system provides dynamic device scaling capabilities for each Kubernetes node.
+- When we use current DRA, it checks and lists all attached devices in worker nodes to Resource slice. (1)
+- We introduce new kind of resource slice for free devices (e.g. GPU) in resource pool. Composable-dra-driver checks the free devices in resource pool and lists them in the resource slice. (1)
+- Now we assume user creates a new Pod requesting a non-existing GPU in worker nodes. (2)
+- When scheduler tries to schedule the Pod and finds the GPU in Resource Slice for resource pool is available, scheduler waits to schedule the Pod. (3-1, 3-2, 4)
+- After that , when Dynamic-device-scaler detects this situation, it requests to attach GPU through composabile-resource- operator custom resource. (5-1, 5-2)
+- Composable-resource-operator requests attachment of GPU to rest API of CDI system. (6-1)
+- Then Composable Hardware Dissagregated Infrastructure Manager controls PCI switch and attach a GPU to a worker node. (6-2)
+- Once GPU is attached, vendor DRA plugin adds the GPU to Resource slice. (1)
+- Finally the Pod is scheduled using attached GPU.
 
-# How To Contribute
-This project welcomes contributions and suggestions. We are happy to have the Community involved via submission of Issues and Pull Requests (with substantive content or even just fixes). We are hoping for the documents, test framework, etc. to become a community process with active engagement. PRs can be reviewed by by any number of people, and a maintainer may accept.
+For more detailed information on each component, please refer to its respective repository in the CoHDI project.
 
-See [CONTRIBUTING](https://github.com/CoHDI/.github/blob/main/CONTRIBUTING.md) and GitHub Basic Process for more details.
+See also [KEP-5007](https://github.com/kubernetes/enhancements/tree/master/keps/sig-scheduling/5007-device-attach-before-pod-scheduled).
+
+#### How CoHDI works:
+
+![how cohdi works](https://github.com/CoHDI/.github/blob/main/profile/how_cohdi_works.gif)
+
+#### GPU Hot-Add Demonstration: A pod request triggers an increase in the number of GPUs attached to a node, from 1 to 2:
+![demo_hotadd](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotadd.gif)
+
+### GPU Hot-Remove Demonstration: Pod deletion triggers a decrease in the number of GPUs attached to a node, from 2 to 1:
+![demo_hodremove](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotremove.gif)
+
+### Related Information
+These are enhancement description for K8s scheduler.
+
+For alpha release: [KEP-5007](https://github.com/KobayashiD27/enhancements/blob/174e2db180affcd647992b880dcb57b0d57b806a/keps/sig-scheduling/5007-device-attach-before-pod-scheduled/)
+
+For beta release: [KEP-5007](https://github.com/kubernetes/enhancements/blob/a781dc2df7d413bc53e180ade416c7f38fa6e948/keps/sig-scheduling/5007-device-attach-before-pod-scheduled/)
+
+## Adopters
+
+[CoHDI Adopters](https://github.com/CoHDI/.github/blob/main/ADOPTERS.md)
+
+## Slack Channel
+
+[CoHDI Slack Channel](https://cloud-native.slack.com/messages/cohdi)
+
+## Meeting
+
+Please see the "Meeting details" on the [CoHDI Slack Channel](https://cloud-native.slack.com/messages/cohdi)
+
+## Governance
+
+[Governance](https://github.com/CoHDI/.github/blob/main/GOVERNANCE.md)
+
+## Code of Conduct
+
+[Code of Conduct](https://github.com/CoHDI/.github/blob/main/CODE_OF_CONDUCT.md)
+
+## Roadmap
+
+[CoHDI Roadmap](https://github.com/CoHDI/.github/blob/main/ROADMAP.md)
 
 
 ## License
