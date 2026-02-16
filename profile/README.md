@@ -54,6 +54,10 @@ For beta release: [KEP-5007](https://github.com/kubernetes/enhancements/blob/a78
 
 Please see the "Meeting details" on the [CoHDI Slack Channel](https://cloud-native.slack.com/messages/cohdi)
 
+## Governance
+
+[Governance](https://github.com/CoHDI/.github/blob/main/GOVERNANCE.md)
+
 ## Code of Conduct
 
 [Code of Conduct](https://github.com/CoHDI/.github/blob/main/CODE_OF_CONDUCT.md)
