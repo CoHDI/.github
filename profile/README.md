@@ -65,3 +65,7 @@ Please see the "Meeting details" on the [CoHDI Slack Channel](https://cloud-nati
 ## Roadmap
 
 [CoHDI Roadmap](https://github.com/CoHDI/.github/blob/main/ROADMAP.md)
+
+## Copyright and Trademarks
+
+Copyright Contributors to CoHDI, established as CoHDI a Series of LF Projects, LLC.
