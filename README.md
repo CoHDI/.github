@@ -4,6 +4,10 @@
 The objective is to cultivate a community-driven, standards-based ecosystem for next-generation architectures built on Composable Hardware in Disaggregated Infrastructure ([CoHDI](https://github.com/CoHDI/.github/blob/main/README.md), pronounced "Cody").
 While Composable Disaggregated Infrastructure enables data center operators to unlock significant cost efficiency, high availability, and sustainability, a critical gap remains between Kubernetes and disaggregated hardware. This gap hinders the realization of truly dynamic composability within cloud-native environments. The CoHDI software suite—consisting of the Composable-DRA-Driver, Dynamic-Device-Scaler, and Composable Resource Operator—is designed to bridge this divide by integrating directly with Kubernetes' Dynamic Resource Allocation (DRA) and collaborating with the sig-node, sig-autoscaling, and sig-scheduling.
 
+## Supported Platform
+
+![Supported Platform](https://github.com/CoHDI/cohdi-chart#supported-platform)
+
 ## How it works
 The CoHDI system consists of a hardware-disaggregated resource pool and the Composable Manager (CoHDI Manager) software. Within the resource pool, all components are interconnected via PCIe or CXL switches. The CoHDI Manager orchestrates these switches to dynamically compose bare-metal hardware servers through software-defined configurations. It provides a Composable Resource API, which can be accessed by either the Composable Resource Operator or Kubernetes API.
 
@@ -34,7 +38,7 @@ See also [KEP-5007](https://github.com/kubernetes/enhancements/tree/master/keps/
 #### GPU Hot-Add Demonstration: A pod request triggers an increase in the number of GPUs attached to a node, from 1 to 2:
 ![demo_hotadd](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotadd.gif)
 
-### GPU Hot-Remove Demonstration: Pod deletion triggers a decrease in the number of GPUs attached to a node, from 2 to 1:
+#### GPU Hot-Remove Demonstration: Pod deletion triggers a decrease in the number of GPUs attached to a node, from 2 to 1:
 ![demo_hodremove](https://raw.githubusercontent.com/CoHDI/.github/main/profile/demo_hotremove.gif)
 
 ### Related Information
@@ -67,7 +71,6 @@ Please see the "Meeting details" on the [CoHDI Slack Channel](https://cloud-nati
 ## Roadmap
 
 [CoHDI Roadmap](https://github.com/CoHDI/.github/blob/main/ROADMAP.md)
-
 
 ## License
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FCoHDI%2F.github.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FCoHDI%2F.github?ref=badge_large)
